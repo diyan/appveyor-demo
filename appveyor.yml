@@ -27,6 +27,7 @@ init:
   # Override default Python version/architecture
   - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python -c "import platform; print('Python', platform.python_version(), platform.architecture()[0])"
+  - pip --version || echo failed
 install:
   - echo install
 
