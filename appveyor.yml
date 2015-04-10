@@ -28,10 +28,16 @@ init:
   - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python -c "import platform; print('Python', platform.python_version(), platform.architecture()[0])"
   - pip --version || echo failed
+  - curl --version || echo failed
+  - bash --version || echo failed
+
 install:
   - echo install
 
 build: off  # Do not run MSBuild, build stuff at install step
+
+build_script:
+  - echo build_script
 
 test_script:
   - echo test_script
