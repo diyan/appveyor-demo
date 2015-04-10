@@ -34,7 +34,7 @@ init:
 install:
   - pip install cffi || echo failed
   - pip install coveralls || echo failed
-  - pip install -r requirements.txt
+  - pip install -r requirements.txt || echo failed
   - winrs -r:localhost cmd.exe /c "echo hello"
 
 build: off  # Do not run MSBuild, build stuff at install step
