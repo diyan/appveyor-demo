@@ -1,13 +1,38 @@
+environment:
+  matrix:
+    - PYTHON: "C:\\Python27"
+      PYTHON_VERSION: "2.7.9"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7.9"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Python33"
+      PYTHON_VERSION: "3.3.5"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Python33-x64"
+      PYTHON_VERSION: "3.3.5"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Python34"
+      PYTHON_VERSION: "3.4.3"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Python34-x64"
+      PYTHON_VERSION: "3.4.3"
+      PYTHON_ARCH: "64"
 init:
-  - echo init
+  - echo job config is %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%
+  # Override default Python version/architecture
+  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - python --version
+  - python -c "import platform; print(platform.architecture()[0])"
 install:
   - echo install
-  - python --version || echo failed
-  - python -c "import struct; print(struct.calcsize('P') * 8)" || echo failed
-  - python -c "import platform; print(platform.architecture()[0])" || echo failed
 
-
-build: off  # do not run MSBuild, build stuff at install step
+build: off  # Do not run MSBuild, build stuff at install step
 
 test_script:
   - echo test_script
