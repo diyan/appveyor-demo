@@ -32,7 +32,9 @@ init:
   - bash --version || echo failed
 
 install:
-  - echo install
+  - pip install cffi || echo failed
+  - pip install coveralls || echo failed
+  - pip install -r requirements.txt
 
 build: off  # Do not run MSBuild, build stuff at install step
 
@@ -40,7 +42,7 @@ build_script:
   - echo build_script
 
 test_script:
-  - echo test_script
+  - py.test -v --cov-report=term-missing --cov=.
 
 after_test:
   - echo after_test
