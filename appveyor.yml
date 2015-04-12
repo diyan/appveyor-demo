@@ -27,9 +27,12 @@ init:
   # Override default Python version/architecture
   - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python -c "import platform; print('Python', platform.python_version(), platform.architecture()[0])"
-  - pip --version || echo failed
   - curl --version || echo failed
   - bash --version || echo failed
+  - dir %PYTHON%
+  - dir %PYTHON%\\Scripts
+  - if not exist %PYTHON%\\Scripts\pip.exe cmd.exe /c "curl https://bootstrap.pypa.io/get-pip.py | python"
+  - pip --version || echo failed
 
 install:
   - pip install cffi || echo failed
