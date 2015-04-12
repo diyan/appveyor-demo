@@ -27,10 +27,6 @@ init:
   # Override default Python version/architecture
   - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python -c "import platform; print('Python', platform.python_version(), platform.architecture()[0])"
-  - curl --version || echo failed
-  - bash --version || echo failed
-  - dir %PYTHON%
-  - dir %PYTHON%\\Scripts
   - if not exist %PYTHON%\\Scripts\\pip.exe curl https://bootstrap.pypa.io/get-pip.py | python
   - pip --version || echo failed
 
