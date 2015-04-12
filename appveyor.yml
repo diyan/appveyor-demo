@@ -32,7 +32,7 @@ init:
 
 install:
   - pip install cffi || echo failed
-  - pip install coveralls || echo failed
+  # - pip install coveralls || echo failed
   - pip install -r requirements.txt || echo failed
   - winrs -r:localhost cmd.exe /c "echo hello"
 
