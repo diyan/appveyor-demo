@@ -35,9 +35,8 @@ init:
   - if not exist %PYTHON%\\Scripts\\pip.exe curl https://bootstrap.pypa.io/get-pip.py | python
 
 install:
-  - pip install cffi || echo failed
-  - "%WITH_COMPILER% pip install coveralls || echo failed"
-  - pip install -r requirements.txt || echo failed
+  - "%WITH_COMPILER% pip install cffi coveralls kerberos"
+  - pip install -r requirements.txt
   - winrs -r:localhost cmd.exe /c "echo hello"
 
 build: off  # Do not run MSBuild, build stuff at install step
