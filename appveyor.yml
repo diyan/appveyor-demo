@@ -31,7 +31,7 @@ init:
   - bash --version || echo failed
   - dir %PYTHON%
   - dir %PYTHON%\\Scripts
-  - if not exist %PYTHON%\\Scripts\\pip.exe cmd.exe /c "curl https://bootstrap.pypa.io/get-pip.py | python"
+  - if not exist %PYTHON%\\Scripts\\pip.exe (cmd.exe /c "curl https://bootstrap.pypa.io/get-pip.py | python")
   - pip --version || echo failed
 
 install:
