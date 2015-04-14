@@ -43,6 +43,7 @@ install:
   - winrm get winrm/config/service/auth
   - winrm get winrm/config/client
   - winrm get winrm/config/service
+  - winrm get winrm/config/service | find "AllowUnencrypted"
 
 build: off  # Do not run MSBuild, build stuff at install step
 
