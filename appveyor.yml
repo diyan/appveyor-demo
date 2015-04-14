@@ -35,7 +35,7 @@ init:
   - if not exist %PYTHON%\\Scripts\\pip.exe curl https://bootstrap.pypa.io/get-pip.py | python
 
 install:
-  - "%WITH_COMPILER% pip install cffi coveralls kerberos"
+  - "%WITH_COMPILER% pip install cffi coveralls"
   - pip install -r requirements.txt
   - winrs -r:localhost cmd.exe /c "echo hello"
 
