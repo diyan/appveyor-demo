@@ -38,9 +38,11 @@ install:
   - "%WITH_COMPILER% pip install cffi coveralls"
   - pip install -r requirements.txt
   - winrs -r:localhost cmd.exe /c "echo hello"
+  # - winrs cmd.exe /c "echo hello"
   - winrm get winrm/config/client/auth
   - winrm get winrm/config/service/auth
-  # - winrs cmd.exe /c "echo hello"
+  - winrm get winrm/config/client
+  - winrm get winrm/config/service
 
 build: off  # Do not run MSBuild, build stuff at install step
 
